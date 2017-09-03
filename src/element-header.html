@@ -3,6 +3,7 @@
 <link rel="import" href="../bower_components/iron-icon/iron-icon.html">
 <link rel="import" href="../bower_components/iron-iconset-svg/iron-iconset-svg.html">
 <link rel="import" href="../bower_components/iron-icons/communication-icons.html">
+<link rel="import" href="../bower_components/lazy-image/lazy-image.html">
 <link rel="import" href="shared-styles.html">
 
 <dom-module id="element-header">
@@ -10,7 +11,6 @@
   <template>
 
     <style include="shared-styles">
-
       header {
         @apply --layout-vertical;
         width: 100%;
@@ -20,169 +20,217 @@
         color: white;
       }
 
-      .ingress{
+      .ingress {
         font-size: 1.5rem;
         font-weight: 300;
         opacity: 0.5;
+        padding: 8px;
       }
 
-        .avatar{
-            width: 12.5rem;
-            height: 12.5rem;
-        }      
+      .avatar {
+        width: 12.5rem;
+        height: 12.5rem;
+        overflow: hidden;
+        background-color: lightgray;
+      }
 
-        .profile{
-            @apply --layout-vertical;
-            @apply --layout-center-center;
+      .avatar-container {
+        display: flex;
+        justify-content: center;
+      }
+
+      .profile {
+        @apply --layout-vertical;
+        @apply --layout-center-center;
+      }
+
+      .icons {
+        @apply --layout-horizontal;
+        @apply --layout-center;
+        height: 3rem;
+        width: 3rem;
+        border-radius: 50%;
+        background-color: var(--tint-dark-grey);
+        margin: 0 auto;
+        opacity: 0.6;
+      }
+
+      iron-icon {
+        color: white;
+        margin: 0 auto;
+      }
+
+      .arrow {
+        position: relative;
+        bottom: 0;
+      }
+
+      .bounce {
+        -webkit-animation-name: bounce;
+        -moz-animation-name: bounce;
+        -o-animation-name: bounce;
+        animation-name: bounce;
+      }
+
+      .animated {
+        -webkit-animation-fill-mode: both;
+        -moz-animation-fill-mode: both;
+        -ms-animation-fill-mode: both;
+        -o-animation-fill-mode: both;
+
+        animation-iteration-count: infinite;
+        -moz-animation-iteration-count: infinite;
+        -webkit-animation-iteration-count: infinite;
+
+        animation-fill-mode: both;
+        -webkit-animation-duration: 2s;
+        -moz-animation-duration: 2s;
+        -ms-animation-duration: 2s;
+        -o-animation-duration: 2s;
+        animation-duration: 2s;
+      }
+
+
+      @-webkit-keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          -webkit-transform: translateY(0);
         }
-
-        .icons{
-            @apply --layout-horizontal;
-            @apply --layout-center;
-            height: 3rem;
-            width: 3rem;
-            border-radius: 50%;
-            background-color: var(--tint-dark-grey);
-            margin: 0 auto;
-            opacity: 0.6;
+        40% {
+          -webkit-transform: translateY(-25px);
         }
-
-        iron-icon{
-            color: white;
-            margin: 0 auto;
+        60% {
+          -webkit-transform: translateY(-15px);
         }
+      }
 
-        .arrow {
-          position: relative;
-          bottom: 0;
+      @-moz-keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          -moz-transform: translateY(0);
         }
-
-        .bounce {
-            -webkit-animation-name: bounce;
-            -moz-animation-name: bounce;
-            -o-animation-name: bounce;
-            animation-name: bounce;
+        40% {
+          -moz-transform: translateY(-25px);
         }
-        .animated{-webkit-animation-fill-mode:both;
-            -moz-animation-fill-mode:both;
-            -ms-animation-fill-mode:both;
-            -o-animation-fill-mode:both;
-
-                    animation-iteration-count: infinite;
-               -moz-animation-iteration-count: infinite;
-            -webkit-animation-iteration-count: infinite;
-
-            animation-fill-mode:both;
-            -webkit-animation-duration:2s;
-            -moz-animation-duration:2s;
-            -ms-animation-duration:2s;
-            -o-animation-duration:2s;
-            animation-duration:2s;
+        60% {
+          -moz-transform: translateY(-15px);
         }
+      }
 
-
-        @-webkit-keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {-webkit-transform: translateY(0);} 40% {-webkit-transform: translateY(-25px);}
-            60% {-webkit-transform: translateY(-15px);}
+      @-o-keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          -o-transform: translateY(0);
         }
-
-        @-moz-keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {-moz-transform: translateY(0);}
-            40% {-moz-transform: translateY(-25px);}
-            60% {-moz-transform: translateY(-15px);}
+        40% {
+          -o-transform: translateY(-25px);
         }
-
-        @-o-keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {-o-transform: translateY(0);}
-            40% {-o-transform: translateY(-25px);}
-            60% {-o-transform: translateY(-15px);}
+        60% {
+          -o-transform: translateY(-15px);
         }
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-25px);}
-            60% {transform: translateY(-15px);}
-        }
+      }
 
-        .arrow img{
-            height: 2rem;
-            width: 2rem;
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
         }
-
-        .lighthouse{
-            height: 2rem;
-            width: 2rem;
+        40% {
+          transform: translateY(-25px);
         }
-
-        @media screen and (min-width: 800px) {
-            video#bgvid { 
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                min-width: 100%;
-                min-height: 100%;
-                width: auto;
-                height: auto;
-                z-index: -100;
-                -ms-transform: translateX(-50%) translateY(-50%);
-                -moz-transform: translateX(-50%) translateY(-50%);
-                -webkit-transform: translateX(-50%) translateY(-50%);
-                transform: translateX(-50%) translateY(-50%);
-                background: url("../images/header-img.jpg") no-repeat;
-                background-size: cover; 
-            }
+        60% {
+          transform: translateY(-15px);
         }
+      }
 
-        @media screen and (max-width: 799px) {
-            header {
-                background: linear-gradient(155deg, rgba(21, 25, 31, 0.9) 0%, rgba(21, 25, 31, 0.9) 100%),
-      url("../images/header-img.jpg") no-repeat;
-                background-size: cover;
-                background-position: center center;
-   
-            }
-            #bgvid {
-                display: none;
-            }
+      .arrow img {
+        height: 2rem;
+        width: 2rem;
+      }
+
+      .lighthouse {
+        height: 2rem;
+        width: 2rem;
+      }
+
+      @media screen and (min-width: 800px) {
+        video#bgvid {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          min-width: 100%;
+          min-height: 100%;
+          width: auto;
+          height: auto;
+          z-index: -100;
+          -ms-transform: translateX(-50%) translateY(-50%);
+          -moz-transform: translateX(-50%) translateY(-50%);
+          -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+          background: url("../images/header-img.jpg") no-repeat;
+          background-size: cover;
         }
+      }
 
+      @media screen and (max-width: 799px) {
+        header {
+          background: linear-gradient(155deg, rgba(21, 25, 31, 0.9) 0%, rgba(21, 25, 31, 0.9) 100%),
+          url("../images/header-img.jpg") no-repeat;
+          background-size: cover;
+          background-position: center center;
+        }
+        #bgvid {
+          display: none;
+        }
+      }
     </style>
 
     <header>
 
-        <div class="profile">
-            <div class="medium">
-                <div style="margin-top: 4rem;">
-                    <img style="margin-bottom: 1rem;" class="avatar" alt="Profile picture" src="/images/profile.jpg" height="164" width="164">
-                </div>
-                <div>
-                    <h1>I am Eirik</h1>
-                    <p class="ingress">Product designer and product manager from Norway, </br>based in Barcelona.</p>
-                </div>  
-                <div class="center center-text" style="padding-top: 1rem;">
-                    <div class="icons">
-                        <iron-icon icon="icons:arrow-downward" class="arrow animated bounce"></iron-icon>
-                    </div>
-                </div> 
+      <div class="profile">
+        <div class="medium">
+          <div class="avatar-container" style="margin-top: 4rem;">
+            <lazy-image fade style="margin-bottom: 1rem;" class="avatar" alt="Profile picture" src="/images/profile.jpg"></lazy-image>
+            <!-- <img style="margin-bottom: 1rem;" class="avatar" alt="Profile picture" src="/images/profile.jpg" height="164" width="164"> -->
+          </div>
+          <div>
+            <h1>I am Eirik</h1>
+            <p class="ingress">Product designer and product manager from Norway, </br>based in Barcelona.</p>
+          </div>
+          <div class="center center-text" style="padding-top: 1rem;">
+            <div class="icons">
+              <iron-icon icon="icons:arrow-downward" class="arrow animated bounce"></iron-icon>
             </div>
+          </div>
         </div>
+      </div>
 
-        <video playsinline autoplay muted loop poster="../images/header-img.jpg" id="bgvid">
-            <source src="../images/header-vid.webm" type="video/webm">
-            <source src="../images/header-vid.mp4" type="video/mp4">
-        </video>
+      <video playsinline autoplay muted loop poster="../images/header-img.jpg" id="bgvid">
+        <source src="../images/header-vid.webm" type="video/webm">
+        <source src="../images/header-vid.mp4" type="video/mp4">
+      </video>
 
     </header>
 
   </template>
 
-<script>
+  <script>
+    Polymer({
+      is: "element-header"
 
-	Polymer({
-		is: "element-header"
-
-	});
-	
-</script>
+    });
+  </script>
 
 </dom-module>
-
