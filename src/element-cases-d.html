@@ -2,7 +2,7 @@
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/paper-chip/paper-chip.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
-<link rel="import" href="../bower_components/iron-image/iron-image.html">
+<link rel="import" href="../bower_components/lazy-image/lazy-image.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
 <link rel="import" href="shared-styles.html">
@@ -16,147 +16,147 @@
     <style include="shared-styles"></style>
 
     <style>
-
-    section{
-      background-color: var(--tint-white);
-    }
-
-    .grid{
-      @apply --layout-horizontal;
-      @apply --layout-wrap;
-      @apply --layout-justified;
-    }
-
-    .flipspace{
-      width: 18.75rem;
-      height: 30rem;
-      position: relative;
-      -webkit-perspective: 50rem; /* Chrome, Safari, Opera */
-      perspective: 50rem;
-    }
-
-    #card{
-      width: 18.75rem;
-      height: 30rem;
-      background-color: var(--tint-white);
-      position: relative;
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      transform-style: preserve-3d;
-      transition: transform 0.5s;
-      cursor:pointer;
-    }
-
-  @media (max-width:450px){
-    .grid{
-      @apply --layout-vertical;
-      @apply --layout-wrap;
-      @apply --layout-center;
-    }
-
-    a{
-      margin-bottom: 2em;
-    }
-  }
-
-    #card figure {
-      margin: 0;
-      display: block;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-    }
-
-    #card .front {
-      background-color: var(--tint-white);
-    }
-
-    .back{
-      display: none;
-    }
-
-    #card .back {
-      background-color: var(--tint-light-grey);
-      color: var(--tint-white);
-      transform: rotateY( -180deg );
-    }
-
-
-    @media (min-width:1025px){
-
-
-      .flipped1, .flipped2, .flipped3{
-        transform: rotateY( -180deg );
+      section {
+        background-color: var(--tint-white);
       }
 
-      .gradient-1{
-        background-image: linear-gradient(145deg, #f5576c 0%, #f5576c 100%);
+      .grid {
+        @apply --layout-horizontal;
+        @apply --layout-wrap;
+        @apply --layout-justified;
       }
 
-      .gradient-2{
-        background-image: linear-gradient(145deg, #16A085 0%, #16A085 100%);
+      .flipspace {
+        width: 18.75rem;
+        height: 30rem;
+        position: relative;
+        -webkit-perspective: 50rem;
+        /* Chrome, Safari, Opera */
+        perspective: 50rem;
       }
 
-      .gradient-3{
-        background-image: linear-gradient(145deg, #1E90FF 0%, #1E90FF 100%);
-      }
-
-      .card-content-back{
-        height: 100%;
+      #card {
+        width: 18.75rem;
+        height: 30rem;
+        background-color: var(--tint-white);
+        position: relative;
         width: 100%;
+        height: 100%;
+        position: absolute;
+        transform-style: preserve-3d;
+        transition: transform 0.5s;
+        cursor: pointer;
+      }
+
+      @media (max-width:450px) {
+        .grid {
+          @apply --layout-vertical;
+          @apply --layout-wrap;
+          @apply --layout-center;
+        }
+
+        a {
+          margin-bottom: 2em;
+        }
+      }
+
+      #card figure {
+        margin: 0;
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+      }
+
+      #card .front {
+        background-color: var(--tint-white);
+      }
+
+      .back {
+        display: none;
+      }
+
+      #card .back {
+        background-color: var(--tint-light-grey);
+        color: var(--tint-white);
+        transform: rotateY( -180deg);
+      }
+
+
+      @media (min-width:1025px) {
+
+
+        .flipped1,
+        .flipped2,
+        .flipped3 {
+          transform: rotateY( -180deg);
+        }
+
+        .gradient-1 {
+          background-image: linear-gradient(145deg, #f5576c 0%, #f5576c 100%);
+        }
+
+        .gradient-2 {
+          background-image: linear-gradient(145deg, #16A085 0%, #16A085 100%);
+        }
+
+        .gradient-3 {
+          background-image: linear-gradient(145deg, #1E90FF 0%, #1E90FF 100%);
+        }
+
+        .card-content-back {
+          height: 100%;
+          width: 100%;
+          display: block;
+        }
+      }
+
+
+      .card-txt {
+        @apply --layout-vertical;
+        padding: 1em;
+        position: relative;
+        height: 14.812rem;
+      }
+
+      .card-text {
+        font-weight: 400;
+        font-size: 1.5rem;
+        padding: 1.875rem 1.562rem 1.562rem 1.562rem;
+      }
+
+      lazy-image {
+        width: 18.75rem;
+        height: 13.125rem;
+      }
+
+      span {
         display: block;
       }
-    }
 
+      .role {
+        text-transform: uppercase;
+        color: var(--tint-medium-grey);
+        font-size: var(--txt-xs);
+      }
 
-    .card-txt{
-      @apply --layout-vertical;
-      padding: 1em;
-      position: relative;
-      height: 14.812rem;
-    }
+      .title {
+        color: var(--tint-black);
+      }
 
-    .card-text{
-      font-weight: 400;
-      font-size: 1.5rem;
-      padding: 1.875rem 1.562rem 1.562rem 1.562rem;
-    }
+      .link {
+        text-transform: uppercase;
+        color: var(--tint-medium-grey);
+        font-size: var(--txt-xxs);
+      }
 
-    iron-image{
-      width: 18.75rem;
-      height: 13.125rem;
-    }
-
-    span{
-      display: block;
-    }
-
-    .role{
-      text-transform: uppercase;
-      color: var(--tint-medium-grey);
-      font-size: var(--txt-xs);
-    }
-
-    .title{
-      color: var(--tint-black);
-    }
-
-    .link{
-      text-transform: uppercase;
-      color: var(--tint-medium-grey);
-      font-size: var(--txt-xxs);
-    }
-
-    .flexchild-vertical {
-      @apply --layout-flex;
-    }
-
-
+      .flexchild-vertical {
+        @apply --layout-flex;
+      }
     </style>
 
-        
+
     <section class="tint-very-light-grey">
 
       <div class="center-text">
@@ -168,12 +168,10 @@
       <div class="grid large center">
 
         <a href="/view3">
-          <div class="flipspace" on-mouseover='onHovered1' 
-          on-mouseout='onUnhovered1'>
+          <div class="flipspace" on-mouseover='onHovered1' on-mouseout='onUnhovered1'>
             <div id="card">
               <figure class="front">
-                <iron-image style="background-color: lightgray;"
-          sizing="cover" preload fade src="../images/cases/case1.jpg"></iron-image>
+                <lazy-image style="background-color: lightgray;" sizing="cover" fade src="../images/cases/case1.jpg"></lazy-image>
                 <div class="card-txt">
                   <div>
                     <span class="role">UX/UI Designer</span>
@@ -188,7 +186,8 @@
               </figure>
               <figure class="back gradient-1">
                 <div class="card-content-back vertical around-justified layout">
-                  <div class="card-text">Designing a cohesive media platform where the products belong together in one product family and creation suite.
+                  <div class="card-text">Designing a cohesive media platform where the products belong together in one product family and creation
+                    suite.
                   </div>
                   <div class="view center horizontal layout end">
                     <paper-button raised class="tint-white">View case</paper-button>
@@ -200,12 +199,10 @@
         </a>
 
         <a href="/view2">
-          <div id="hideme" class="flipspace" on-mouseover='onHovered2' 
-          on-mouseout='onUnhovered2'>
+          <div id="hideme" class="flipspace" on-mouseover='onHovered2' on-mouseout='onUnhovered2'>
             <div id="card">
               <figure class="front">
-                <iron-image style="background-color: lightgray;"
-        sizing="cover" preload fade src="../images/cases/case2.jpg"></iron-image>
+                <lazy-image style="background-color: lightgray;" sizing="cover" fade src="../images/cases/case2.jpg"></lazy-image>
                 <div class="card-txt">
                   <div>
                     <span class="role">Team Lead Design</span>
@@ -213,7 +210,7 @@
                   <div class="flexchild-vertical">
                     <h3 class="title">Redesigning Norsk-tipping.no</h3>
                   </div>
-                   <div>
+                  <div>
                     <span class="link">View case</span>
                   </div>
                 </div>
@@ -233,13 +230,11 @@
         </a>
 
 
-        <a href="/view6">  
-          <div class="flipspace" on-mouseover='onHovered3' 
-          on-mouseout='onUnhovered3'>
-            <div id="card" >
+        <a href="/view6">
+          <div class="flipspace" on-mouseover='onHovered3' on-mouseout='onUnhovered3'>
+            <div id="card">
               <figure class="front">
-                <iron-image style="background-color: lightgray;"
-          sizing="cover" preload fade src="../images/cases/case3.jpg"></iron-image>
+                <lazy-image style="background-color: lightgray;" sizing="cover" fade src="../images/cases/case3.jpg"></lazy-image>
                 <div class="card-txt">
                   <div>
                     <span class="role">Design Lead</span>
@@ -247,7 +242,7 @@
                   <div class="flexchild-vertical">
                     <h3 class="title">Marketplaces Professionals - Car dealers</h3>
                   </div>
-                   <div>
+                  <div>
                     <span class="link">View case</span>
                   </div>
                 </div>
@@ -255,7 +250,7 @@
               <figure class="back gradient-3">
                 <div class="card-content-back vertical around-justified layout">
                   <div class="card-text">
-                  How we made tailored products for professionals ad like car dealers
+                    How we made tailored products for professionals ad like car dealers
                   </div>
                   <div class="view center">
                     <paper-button raised class="tint-white">View case</paper-button>
@@ -267,46 +262,42 @@
         </a>
 
       </div>
-    
+
     </section>
 
     <script>
-
     </script>
 
   </template>
 
-<script>
+  <script>
+    Polymer({
+      is: "element-cases-d"
+      /*
+        hovered1: false,
+        onHovered1: function() {
+          this.hovered1 = 'flipped1';
+        },
+        onUnhovered1: function() {
+          this.hovered1 = false;
+        },
 
-	Polymer({
-		is: "element-cases-d"
-    /*
-      hovered1: false,
-      onHovered1: function() {
-        this.hovered1 = 'flipped1';
-      },
-      onUnhovered1: function() {
-        this.hovered1 = false;
-      },
+        hovered2: false,
+        onHovered2: function() {
+          this.hovered2 = 'flipped2';
+        },
+        onUnhovered2: function() {
+          this.hovered2 = false;
+        },
 
-      hovered2: false,
-      onHovered2: function() {
-        this.hovered2 = 'flipped2';
-      },
-      onUnhovered2: function() {
-        this.hovered2 = false;
-      },
-
-       hovered3: false,
-      onHovered3: function() {
-        this.hovered3 = 'flipped3';
-      },
-      onUnhovered3: function() {
-        this.hovered3 = false;
-      }     */
-	});
-
-</script>
+         hovered3: false,
+        onHovered3: function() {
+          this.hovered3 = 'flipped3';
+        },
+        onUnhovered3: function() {
+          this.hovered3 = false;
+        }     */
+    });
+  </script>
 
 </dom-module>
-

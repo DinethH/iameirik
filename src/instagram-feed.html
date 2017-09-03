@@ -7,13 +7,13 @@
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/iron-resizable-behavior/iron-resizable-behavior.html">
+<link rel="import" href="../bower_components/lazy-image/lazy-image.html">
 <link rel="import" href="shared-styles.html">
 
-<link rel="import" href="lazy-image.html">
 
 <dom-module id="instagram-feed">
   <template>
-  <style include="shared-styles"></style>
+    <style include="shared-styles"></style>
     <style>
        :host {
         display: block;
@@ -76,7 +76,7 @@
     <div class="grid">
       <template is="dom-repeat" items="{{_items}}">
         <a class="item" target="_blank" href="[[item.link]]">
-          <lazy-image src="[[item.images.standard_resolution.url]]"></lazy-image>
+          <lazy-image fade src="[[item.images.standard_resolution.url]]"></lazy-image>
         </a>
       </template>
     </div>
