@@ -42,6 +42,7 @@
       .profile {
         @apply --layout-vertical;
         @apply --layout-center-center;
+        height: 100%;
       }
 
       .icons {
@@ -167,7 +168,14 @@
       }
 
       @media screen and (min-width: 800px) {
-        video#bgvid {
+        video {
+          width: 100vw;
+          object-fit: cover;
+          height: 100vh;
+          position: absolute;
+          z-index: -100;
+        }
+        /* video#bgvid {
           position: absolute;
           top: 50%;
           left: 50%;
@@ -182,7 +190,7 @@
           transform: translateX(-50%) translateY(-50%);
           background: url("../images/header-img.jpg") no-repeat;
           background-size: cover;
-        }
+        } */
       }
 
       @media screen and (max-width: 799px) {
@@ -202,7 +210,7 @@
 
       <div class="profile">
         <div class="medium">
-          <div class="avatar-container" style="margin-top: 4rem;">
+          <div class="avatar-container">
             <lazy-image fade style="margin-bottom: 1rem;" class="avatar" alt="Profile picture" src="/images/profile.jpg"></lazy-image>
             <!-- <img style="margin-bottom: 1rem;" class="avatar" alt="Profile picture" src="/images/profile.jpg" height="164" width="164"> -->
           </div>
