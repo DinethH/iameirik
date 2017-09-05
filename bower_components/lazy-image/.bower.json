@@ -15,15 +15,14 @@
     "polymer": "^2.0.0"
   },
   "homepage": "https://github.com/DinethH/lazy-image",
-  "version": "0.0.4",
-  "_release": "0.0.4",
+  "version": "0.0.5",
+  "_release": "0.0.5",
   "_resolution": {
     "type": "version",
-    "tag": "0.0.4",
-    "commit": "eea00849d9ca937477828316df462df898ddbe86"
+    "tag": "0.0.5",
+    "commit": "f612411da0e485c381f7d275ddba9481089092f4"
   },
   "_source": "https://github.com/DinethH/lazy-image.git",
-  "_target": "^0.0.4",
-  "_originalSource": "lazy-image",
-  "_direct": true
+  "_target": "^0.0.5",
+  "_originalSource": "lazy-image"
 }
